@@ -53,7 +53,7 @@ def pkcs12(key, cert, root_cert):
     p12.set_privatekey(ssl.crypto.load_privatekey(ssl.SSL.FILETYPE_PEM, key))
     p12.set_certificate(ssl.crypto.load_certificate(ssl.SSL.FILETYPE_PEM, cert))
     p12.set_ca_certificates((ssl.crypto.load_certificate(ssl.SSL.FILETYPE_PEM, root_cert),))
-    return p12.export(getpass.getpass("Password for importing this key: "))
+    return p12.export()
 
 def spkac2pem(pk):
     csr = m2.X509.Request()
